@@ -4,7 +4,6 @@
 #include <sstream>
 #include <string>
 #include <unordered_map>
-#include <iterator>  
 #include <vector>
 
 // given two strings of equal length, 
@@ -68,7 +67,7 @@ int main(int argc, char* argv[]) {
         for (auto box2: boxes) {
             std::pair<int, std::string> res = stringDiff(box1, box2);
             if (res.first == 1) {
-                std::printf("Common box code: %s, chars: %i\n", res.second.c_str(), res.first);
+                std::cout << res.second << std::endl;
                 return 0;
             }
         }
