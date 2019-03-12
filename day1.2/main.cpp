@@ -3,7 +3,6 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <algorithm>
 #include <string>
 #include <unordered_set>
 #include <iterator>  
@@ -49,11 +48,11 @@ int main(int argc, char* argv[]) {
     infile.close();
 
     // now we loop over offsets generating freq until we have dupes
+    // we use set to check for dupes because easy and fast
     int offset = 0;
     std::unordered_set<int> seen = {};
     while(true) {
         for(int adj : offsets) {
-            //std::cout << "offset: " << offset << " adj: " << adj << std::endl;
             offset += adj;
 
             std::pair<SetIterator, bool> res = seen.insert(offset);
